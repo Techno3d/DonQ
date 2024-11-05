@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -12,19 +13,23 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     float detectionDistance = 10f;
     [SerializeField]
+    float attackDist = 4f;
+    [SerializeField]
     public GameObject projectilePrefab;
     [SerializeField]
     public float projectileSpeed = 10f;
     public float reloadTime = 1f;
     int pointIndex = 0;
     Vector3 vel = Vector3.zero;
-    float WaitTime = 0f;
+    Vector3 assumedLocation = Vector3.zero;
+    float WaitTime = 0;
     GameObject player;
     private AIState aiState = AIState.Patrol;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        WaitTime = reloadTime;
     }
 
     // Update is called once per frame
@@ -32,7 +37,7 @@ public class EnemyAI : MonoBehaviour
     {
         switch (aiState) {
             case AIState.Patrol:
-                patrol();
+                Patrol();
                 CheckPatrolState();
                 break;
             case AIState.Chase:
@@ -47,64 +52,85 @@ public class EnemyAI : MonoBehaviour
                 }
                 CheckAttackState();
                 break;
+            case AIState.Find:
+                WaitTime += Time.deltaTime;
+                Find();
+                CheckFindState();
+                break;
+        }
+    }
+
+    private void CheckFindState() {
+        // If its been trying for too long, go back to patrol
+        if(WaitTime > 2f) {
+            aiState = AIState.Patrol;
+            return;
+        }
+
+        // If not, see if player is in sight
+        float dist = Vector3.Distance(player.transform.position, transform.position);
+        if(dist > detectionDistance) return; // Don't raycast if its not even possible to see
+        bool inSight = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
+        if (inSight && dist < attackDist) { // Stay Attacking
+            aiState = AIState.Attack;
+        }
+        else if (inSight) // Attack -> Chase
+        {
+            aiState = AIState.Chase;
         }
     }
 
     private void CheckAttackState() {
         float dist = Vector3.Distance(player.transform.position, transform.position);
-        bool inSight = false;
-        if(dist < detectionDistance) {
-            RaycastHit hit;
-            inSight = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out hit, detectionDistance) && hit.collider.CompareTag("Player");
-            if(inSight && dist < detectionDistance/2) {
-                aiState = AIState.Attack;
-            }
-            else if (inSight)
-            {
-                aiState = AIState.Chase;
-            }
-        } else {
-            aiState = AIState.Patrol;
+        if(dist > detectionDistance) { // Attack -> Patrol
+            assumedLocation = transform.position + (player.transform.position - transform.position).normalized*2f;
+            aiState = AIState.Find;
+            return;
+        }
+        bool inSight = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
+        if (inSight && dist < attackDist) { // Stay Attacking
+            aiState = AIState.Attack;
+        }
+        else if (inSight) // Attack -> Chase
+        {
+            aiState = AIState.Chase;
         }
     }
 
+    // Similar to CheckAttackState
     private void CheckChaseState() {
         float dist = Vector3.Distance(player.transform.position, transform.position);
-        bool inSight = false;
-        if(dist < detectionDistance) {
-            RaycastHit hit;
-            inSight = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out hit, detectionDistance) && hit.collider.CompareTag("Player");
-            if(inSight && dist < detectionDistance/2) {
-                aiState = AIState.Attack;
-            }
-            else if (inSight)
-            {
-                aiState = AIState.Chase;
-            }
-        } else {
-            aiState = AIState.Patrol;
+        // Player leaves distance
+        if(dist > detectionDistance) { // Attack -> Patrol
+            assumedLocation = transform.position + (player.transform.position - transform.position).normalized*2f;
+            aiState = AIState.Find;
+            return;
+        }
+        // Check for sight (walls, etc)
+        bool inSight = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
+        if (inSight && dist < attackDist) { // Chase -> Attack
+            aiState = AIState.Attack;
+        }
+        else if (inSight) // Stay Chasing
+        {
+            aiState = AIState.Chase;
         }
     }
 
     private void CheckPatrolState() {
         float dist = Vector3.Distance(player.transform.position, transform.position);
-        bool inSight = false;
-        if(dist < detectionDistance) {
-            RaycastHit hit;
-            inSight = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out hit, detectionDistance) && hit.collider.CompareTag("Player");
-            if(inSight && dist < detectionDistance/2) {
-                aiState = AIState.Attack;
-            }
-            else if (inSight)
-            {
-                aiState = AIState.Chase;
-            }
-        } else {
+        if(dist > detectionDistance) { // Attack -> Patrol
             aiState = AIState.Patrol;
+            return;
+        }
+        bool inSight = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
+        if (inSight) // Attack -> Chase
+        {
+            aiState = AIState.Chase;
         }
     }
 
-    void patrol() {
+    void Patrol() {
         Vector3 dir = (waypoints[pointIndex].transform.position - transform.position).normalized;
         if(Physics.Raycast(transform.position, dir, 4f)) {
             dir = Vector3.Cross(dir, Vector3.up);
@@ -116,6 +142,17 @@ public class EnemyAI : MonoBehaviour
         if((waypoints[pointIndex].transform.position - transform.position).magnitude < 1.0f) {
             pointIndex = (pointIndex+1)%waypoints.Count;
         }
+        GetComponent<Rigidbody>().velocity = vel;
+    }
+    
+    void Find() {
+        Vector3 dir = (assumedLocation - transform.position).normalized;
+        if(Physics.Raycast(transform.position, dir, 4f)) {
+            dir = Vector3.Cross(dir, Vector3.up);
+        }
+        transform.rotation = Quaternion.Euler(0f, Mathf.Atan2(dir.x,dir.z), 0f);
+        vel.x = Mathf.MoveTowards(vel.x, dir.x*speed, 20f*Time.deltaTime);
+        vel.z = Mathf.MoveTowards(vel.z, dir.z*speed, 20f*Time.deltaTime);
         GetComponent<Rigidbody>().velocity = vel;
     }
 
@@ -144,12 +181,19 @@ public class EnemyAI : MonoBehaviour
         Vector3 bulletVel = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized * projectileSpeed;
         // Instantiate and shoot the projectile
         GameObject projectile = Instantiate(projectilePrefab, transform.position + bulletVel*0.1f, Quaternion.identity);
-        Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        rb.velocity = bulletVel;
-        GetComponent<Rigidbody>().velocity = -bulletVel;
+        if(!projectile.GetComponent<Projectile>().isAnchored) {
+            projectile.transform.position = new Vector3(projectile.transform.position.x, transform.position.y + 2, transform.position.z);
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            rb.velocity = bulletVel;
+            GetComponent<Rigidbody>().velocity = -bulletVel/10f;
+        } else {
+            projectile.transform.parent = transform;
+            projectile.transform.position -= bulletVel*0.1f;
+            
+        }
     }
 }
 
 enum AIState {
-    Patrol, Chase, Attack
+    Patrol, Chase, Attack, Find
 }
