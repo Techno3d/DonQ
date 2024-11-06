@@ -20,8 +20,8 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("has died!");
             // Implement player death logic, like restarting the game or showing a game over screen.
+            // Destroy(gameObject);
         }
     }
 }

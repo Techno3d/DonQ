@@ -12,7 +12,6 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hi");
         if (collision.collider.CompareTag(funnyTag))
         {
             Health health = collision.collider.GetComponent<Health>();
@@ -26,7 +25,6 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Hi");
         if (collision.CompareTag(funnyTag))
         {
             Health health = collision.GetComponent<Health>();

@@ -35,6 +35,11 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Todo - Remove later
+        if(GetComponent<Health>().health <= 0) {
+            Destroy(gameObject);
+            return;
+        }
         switch (aiState) {
             case AIState.Patrol:
                 Patrol();
