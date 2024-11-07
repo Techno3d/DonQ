@@ -57,16 +57,15 @@ public class PlayerController : MonoBehaviour
         direction = Vector3.ClampMagnitude(direction, 1f);
         velocity.x = Mathf.MoveTowards(velocity.x, direction.x*5f, 30f*Time.deltaTime);
         velocity.z = Mathf.MoveTowards(velocity.z, direction.z*5f, 30f*Time.deltaTime);
+        
+        // Apply gravity
+        if(!controller.isGrounded) {
+            velocity.y -= gravity * Time.deltaTime;
+        }
+        controller.Move(velocity * Time.deltaTime);
         // Jumping
         if (controller.isGrounded && Input.GetButtonDown("Jump")) {
             velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
-        }
-        
-        // Apply gravity
-        velocity.y -= gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-        if(controller.isGrounded) {
-            velocity.y = 0;
         }
         if(Input.GetMouseButtonUp(0)) {
             Attack();
@@ -82,6 +81,7 @@ public class PlayerController : MonoBehaviour
         GameObject projectile = Instantiate(projectilePrefab, transform.position + Vector3.up*-(funny-20)/30 + bulletVel*0.1f, Quaternion.identity);
         projectile.GetComponent<Projectile>().funnyTag = "Enemy";
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
+        bulletVel.y += 1;
         rb.velocity = bulletVel;
     }
 }
