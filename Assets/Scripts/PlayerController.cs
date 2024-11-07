@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         
         float funny = (cam.transform.eulerAngles.x + 180)%360 - 180;
         Debug.Log(funny + " " + Vector3.up*-(funny-20)/30);
-        GameObject projectile = Instantiate(projectilePrefab, transform.position + Vector3.up*-(funny-20)/30 + bulletVel*0.1f, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefab, transform.position + Vector3.up*-(funny-50)/30 + bulletVel*0.1f, Quaternion.identity);
         projectile.GetComponent<Projectile>().funnyTag = "Enemy";
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = bulletVel;
