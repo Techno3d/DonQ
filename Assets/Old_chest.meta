@@ -1,6 +1,10 @@
 fileFormatVersion: 2
-guid: f7b89b0860f717d4cbf3bb65ed9677d8
+<<<<<<<< HEAD:Assets/Old_chest.meta
+guid: ec0056c5cea4d0349955f5b5479d15e7
 folderAsset: yes
+========
+guid: 9e3062f5585965d44b360281652730e6
+>>>>>>>> 0339c8b8b79e10e73f9d60bc5db57b4b87e6b457:Assets/Scenes/UI.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
