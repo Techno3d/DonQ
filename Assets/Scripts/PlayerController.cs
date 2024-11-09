@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
         // Jumping
         if (controller.isGrounded && Input.GetButtonDown("Jump")) {
-            velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity) * speedmod;
+            velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity) * speedmod * 0.5f;
         }
         if(Input.GetMouseButtonUp(0)) {
             animator.SetTrigger("Throwing");
