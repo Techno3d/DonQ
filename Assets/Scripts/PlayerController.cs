@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     CharacterController controller;
     Vector3 velocity = Vector3.zero;
 
+    public float speedmod = 1.3f;
     public float speed = 7.0f;
     public float jumpHeight = 1.0f;
     public float gravity = 9.81f;
@@ -40,7 +41,13 @@ public class PlayerController : MonoBehaviour
             mouseLocked = !mouseLocked;
             Cursor.lockState = mouseLocked ? CursorLockMode.Locked : CursorLockMode.None;
         }
-        
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speedmod = 2f;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift)) {
+            speedmod = 1.3f;
+        }
         // Input
         float xaxis = -Input.GetAxis("Vertical");
         float zaxis = Input.GetAxis("Horizontal");
@@ -55,8 +62,8 @@ public class PlayerController : MonoBehaviour
         );
         
         direction = Vector3.ClampMagnitude(direction, 1f);
-        velocity.x = Mathf.MoveTowards(velocity.x, direction.x*5f, 30f*Time.deltaTime);
-        velocity.z = Mathf.MoveTowards(velocity.z, direction.z*5f, 30f*Time.deltaTime);
+        velocity.x = Mathf.MoveTowards(velocity.x, direction.x*5f*speedmod, 30f*Time.deltaTime);
+        velocity.z = Mathf.MoveTowards(velocity.z, direction.z*5f*speedmod, 30f*Time.deltaTime);
         
         // Apply gravity
         if(!controller.isGrounded) {
@@ -65,7 +72,7 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
         // Jumping
         if (controller.isGrounded && Input.GetButtonDown("Jump")) {
-            velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
+            velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity) * speedmod;
         }
         if(Input.GetMouseButtonUp(0)) {
             Attack();
@@ -78,6 +85,6 @@ public class PlayerController : MonoBehaviour
         GameObject projectile = Instantiate(projectilePrefab, transform.position + Vector3.up*1.8f + bulletVel*0.1f, Quaternion.identity);
         projectile.GetComponent<Projectile>().funnyTag = "Enemy";
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        rb.velocity = bulletVel;
+        rb.velocity = bulletVel*speedmod;
     }
 }
