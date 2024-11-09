@@ -89,15 +89,14 @@ public class PlayerController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity) * speedmod;
         }
         if(Input.GetMouseButtonUp(0)) {
-            Attack();
-            
+            animator.SetTrigger("Throwing");
         }
     }
 
-    private void Attack() {
+    // Called via animation event
+    public void Attack() {
         // Instantiate and shoot the projectile
         Vector3 bulletVel = cam.transform.forward * projectileSpeed;
-        animator.SetBool("Throwing", true);
         GameObject projectile = Instantiate(projectilePrefab, transform.position + Vector3.up*1.8f + bulletVel*0.1f, Quaternion.identity);
         projectile.GetComponent<Projectile>().funnyTag = "Enemy";
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
