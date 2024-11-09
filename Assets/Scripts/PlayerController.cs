@@ -26,12 +26,14 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 1.0f;
     public float gravity = 9.81f;
     public float turnSmoothTime = 0.1f;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -62,6 +64,18 @@ public class PlayerController : MonoBehaviour
         );
         
         direction = Vector3.ClampMagnitude(direction, 1f);
+        if (direction == Vector3.zero)
+        {
+            animator.SetFloat("Speed", 0f);
+        }
+        else if (speedmod == 2f)
+        {
+            animator.SetFloat("Speed", 1.5f);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 1f);
+        }
         velocity.x = Mathf.MoveTowards(velocity.x, direction.x*5f*speedmod, 30f*Time.deltaTime);
         velocity.z = Mathf.MoveTowards(velocity.z, direction.z*5f*speedmod, 30f*Time.deltaTime);
         
@@ -76,12 +90,14 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetMouseButtonUp(0)) {
             Attack();
+            
         }
     }
 
     private void Attack() {
         // Instantiate and shoot the projectile
         Vector3 bulletVel = cam.transform.forward * projectileSpeed;
+        animator.SetBool("Throwing", true);
         GameObject projectile = Instantiate(projectilePrefab, transform.position + Vector3.up*1.8f + bulletVel*0.1f, Quaternion.identity);
         projectile.GetComponent<Projectile>().funnyTag = "Enemy";
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
