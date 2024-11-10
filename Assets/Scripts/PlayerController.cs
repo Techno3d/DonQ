@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         float zaxis = Input.GetAxis("Horizontal");
         float mousex = Input.GetAxis("Mouse X");
         rotY += mousex*rotationSpeed*Mathf.Deg2Rad*Time.deltaTime;
-        transform.rotation = Quaternion.Euler(transform.rotation.x, rotY*Mathf.Rad2Deg, transform.rotation.z);
+        transform.rotation = Quaternion.Euler(0, rotY*Mathf.Rad2Deg, 0);
         // I love matrix multiplication
         Vector3 direction = new Vector3(
             zaxis*Mathf.Cos(rotY)-xaxis*Mathf.Sin(rotY),
