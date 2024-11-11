@@ -46,11 +46,11 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            speedmod = 2f;
+            speedmod = 3f;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speedmod = 1.3f;
+            speedmod = 1.8f;
         }
         // Input
         float xaxis = -Input.GetAxis("Vertical");
@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         // Jumping
         if (controller.isGrounded && Input.GetButtonDown("Jump"))
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity) * speedmod * 0.5f;
+            velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity) * Mathf.Sqrt(speedmod) * 0.8f;
         }
         if (Input.GetMouseButtonUp(0))
         {
