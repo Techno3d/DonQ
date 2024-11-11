@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI.unity
     guid: a1c0708b81944da4f89876eede6fa895
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Island2.unity
     guid: b8e992670681c374e86337131145d16d
+  - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: eb6dc8356dad9417192f0e7a59463768
+  - enabled: 1
+    path: Assets/Scenes/THE Island.unity
+    guid: 411180e8d35ab48bf9697b56ca6bf659
   m_configObjects: {}
