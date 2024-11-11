@@ -5,6 +5,8 @@ using UnityEngine;
 public class Treasure : MonoBehaviour
 {
     public float initialHeight = 0.5f;
+    public TreasureSpawner parent;
+    public int index;
     void Start()
     {
         RaycastHit hit;
@@ -15,9 +17,13 @@ public class Treasure : MonoBehaviour
         transform.position = new Vector3(transform.position.x, initialHeight, transform.position.z);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            GameObject.FindWithTag("GameController").GetComponent<GameManager>().IncScore(1);
+            parent.treasureList.RemoveAt(index);
+            Destroy(gameObject); 
+        }
     }
 }

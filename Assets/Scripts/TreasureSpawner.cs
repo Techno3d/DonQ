@@ -18,7 +18,10 @@ public class TreasureSpawner : MonoBehaviour
                 200f,
                 Random.Range(refNode.z + radius*-5, refNode.z + radius*5)
             );
-            treasureList.Add(Instantiate(treasurePrefab, spawn, Quaternion.identity, transform));
+            GameObject tr = Instantiate(treasurePrefab, spawn, Quaternion.identity, transform);
+            treasureList.Add(tr);
+            tr.GetComponent<Treasure>().parent = gameObject.GetComponent<TreasureSpawner>();
+            tr.GetComponent<Treasure>().index = treasureList.Count-1;
         }
     }
 }
