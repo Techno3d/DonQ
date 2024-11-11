@@ -39,7 +39,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Escape)) {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
             mouseLocked = !mouseLocked;
             Cursor.lockState = mouseLocked ? CursorLockMode.Locked : CursorLockMode.None;
         }
@@ -47,22 +48,23 @@ public class PlayerController : MonoBehaviour
         {
             speedmod = 2f;
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift)) {
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
             speedmod = 1.3f;
         }
         // Input
         float xaxis = -Input.GetAxis("Vertical");
         float zaxis = Input.GetAxis("Horizontal");
         float mousex = Input.GetAxis("Mouse X");
-        rotY += mousex*rotationSpeed*Mathf.Deg2Rad*Time.deltaTime;
-        transform.rotation = Quaternion.Euler(0, rotY*Mathf.Rad2Deg, 0);
+        rotY += mousex * rotationSpeed * Mathf.Deg2Rad * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0, rotY * Mathf.Rad2Deg, 0);
         // I love matrix multiplication
         Vector3 direction = new Vector3(
-            zaxis*Mathf.Cos(rotY)-xaxis*Mathf.Sin(rotY),
+            zaxis * Mathf.Cos(rotY) - xaxis * Mathf.Sin(rotY),
             0f,
-            -zaxis*Mathf.Sin(rotY)-xaxis*Mathf.Cos(rotY)
+            -zaxis * Mathf.Sin(rotY) - xaxis * Mathf.Cos(rotY)
         );
-        
+
         direction = Vector3.ClampMagnitude(direction, 1f);
         if (direction == Vector3.zero)
         {
@@ -76,30 +78,34 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("Speed", 1f);
         }
-        velocity.x = Mathf.MoveTowards(velocity.x, direction.x*5f*speedmod, 30f*Time.deltaTime);
-        velocity.z = Mathf.MoveTowards(velocity.z, direction.z*5f*speedmod, 30f*Time.deltaTime);
-        
+        velocity.x = Mathf.MoveTowards(velocity.x, direction.x * 5f * speedmod, 30f * Time.deltaTime);
+        velocity.z = Mathf.MoveTowards(velocity.z, direction.z * 5f * speedmod, 30f * Time.deltaTime);
+
         // Apply gravity
-        if(!controller.isGrounded) {
+        if (!controller.isGrounded)
+        {
             velocity.y -= gravity * Time.deltaTime;
         }
         controller.Move(velocity * Time.deltaTime);
         // Jumping
-        if (controller.isGrounded && Input.GetButtonDown("Jump")) {
+        if (controller.isGrounded && Input.GetButtonDown("Jump"))
+        {
             velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity) * speedmod * 0.5f;
         }
-        if(Input.GetMouseButtonUp(0)) {
+        if (Input.GetMouseButtonUp(0))
+        {
             animator.SetTrigger("Throwing");
         }
     }
 
     // Called via animation event
-    public void Attack() {
+    public void Attack()
+    {
         // Instantiate and shoot the projectile
         Vector3 bulletVel = cam.transform.forward * projectileSpeed;
-        GameObject projectile = Instantiate(projectilePrefab, transform.position + Vector3.up*1.8f + bulletVel*0.1f, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefab, transform.position + Vector3.up * 1.8f + bulletVel * 0.1f, Quaternion.identity);
         projectile.GetComponent<Projectile>().funnyTag = "Enemy";
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        rb.velocity = bulletVel*speedmod;
+        rb.velocity = bulletVel * speedmod;
     }
 }
