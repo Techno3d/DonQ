@@ -1123,8 +1123,8 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.0078125
-          value: 0.9226074
+          time: 0
+          value: 0.74061584
           inSlope: 0.78049093
           outSlope: 0.78049093
           tangentMode: 0
@@ -1133,7 +1133,7 @@ ParticleSystem:
           outWeight: 0.07685903
         - serializedVersion: 3
           time: 1
-          value: 0.8260021
+          value: 0.4025669
           inSlope: 2
           outSlope: 2
           tangentMode: 0
@@ -5791,11 +5791,11 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2430878, y: 0.9141898, z: 1.1613922}
-  m_Center: {x: 0.021408081, y: 0.30629802, z: 0.002840042}
+  m_Size: {x: 1.2430878, y: 0.73598576, z: 1.2527599}
+  m_Center: {x: 0.021408081, y: 0.39540005, z: -0.04284382}
 --- !u!1 &194088
 GameObject:
   m_ObjectHideFlags: 0

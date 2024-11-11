@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465878, g: 0.4964224, b: 0.57482475, a: 1}
+  m_IndirectSpecularColor: {r: 0.18029124, g: 0.22572401, b: 0.3069303, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 497461006}
   m_Layer: 0
   m_Name: TreasureSpawner
-  m_TagString: Untagged
+  m_TagString: TreasureSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -352,11 +352,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 052b64c2737941a4a946f43907eb703b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treasurePrefab: {fileID: 882860886}
+  treasurePrefab: {fileID: 187966, guid: c7ba8aacb1d261048bab2170e7576836, type: 3}
   nodes:
   - {fileID: 1548011111}
   - {fileID: 1599583602}
   radius: 5
+  treasureList: []
 --- !u!4 &497461007
 Transform:
   m_ObjectHideFlags: 0
@@ -672,6 +673,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialHeight: 0.5
+  parent: {fileID: 0}
+  index: 0
 --- !u!1 &916388251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1073,7 @@ GameObject:
   - component: {fileID: 1836066849}
   - component: {fileID: 1836066850}
   - component: {fileID: 1836066851}
+  - component: {fileID: 1836066852}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1197,6 +1201,7 @@ MonoBehaviour:
   reloadTime: 1
   rotationSpeed: 360
   cam: {fileID: 346847453}
+  speedmod: 1.3
   speed: 7
   jumpHeight: 1
   gravity: 9.81
@@ -1227,6 +1232,27 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1836066852
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836066843}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &152103040013575211
 PrefabInstance:
   m_ObjectHideFlags: 0

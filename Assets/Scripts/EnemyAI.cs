@@ -35,8 +35,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         // Todo - Remove later
         if(GetComponent<Health>().health <= 0) {
             Destroy(gameObject);
@@ -73,7 +72,7 @@ public class EnemyAI : MonoBehaviour
 
     private void CheckHuntState() {
         float dist = Vector3.Distance(player.transform.position, transform.position);
-        bool inSight = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
+        bool inSight = Physics.Raycast(transform.position, (player.transform.position + Vector3.up - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
         if (inSight && dist < attackDist) { // Hunt -> Attack
             aiState = AIState.Attack;
         }
@@ -93,7 +92,7 @@ public class EnemyAI : MonoBehaviour
         // If not, see if player is in sight
         float dist = Vector3.Distance(player.transform.position, transform.position);
         if(dist > detectionDistance) return; // Don't raycast if its not even possible to see
-        bool inSight = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
+        bool inSight = Physics.Raycast(transform.position, (player.transform.position + Vector3.up - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
         if (inSight && dist < attackDist) { // Stay Attacking
             aiState = AIState.Attack;
         }
@@ -110,11 +109,11 @@ public class EnemyAI : MonoBehaviour
                 aiState = AIState.Hunt;
                 return;
             }
-            assumedLocation = transform.position + (player.transform.position - transform.position).normalized*2f;
+            assumedLocation = transform.position + (player.transform.position + Vector3.up - transform.position).normalized*2f;
             aiState = AIState.Find;
             return;
         }
-        bool inSight = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
+        bool inSight = Physics.Raycast(transform.position, (player.transform.position + Vector3.up - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
         if (inSight && dist < attackDist) { // Stay Attacking
             aiState = AIState.Attack;
         }
@@ -133,12 +132,12 @@ public class EnemyAI : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position);
         // Player leaves distance
         if(dist > detectionDistance) { // Chase -> Patrol
-            assumedLocation = transform.position + (player.transform.position - transform.position).normalized*2f;
+            assumedLocation = transform.position + (player.transform.position + Vector3.up - transform.position).normalized*2f;
             aiState = AIState.Find;
             return;
         }
         // Check for sight (walls, etc)
-        bool inSight = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
+        bool inSight = Physics.Raycast(transform.position, (player.transform.position + Vector3.up - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
         if (inSight && dist < attackDist) { // Chase -> Attack
             aiState = AIState.Attack;
         }
@@ -158,7 +157,7 @@ public class EnemyAI : MonoBehaviour
             aiState = AIState.Patrol;
             return;
         }
-        bool inSight = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
+        bool inSight = Physics.Raycast(transform.position, (player.transform.position + Vector3.up - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
         if (inSight) // Attack -> Chase
         {
             aiState = AIState.Chase;
