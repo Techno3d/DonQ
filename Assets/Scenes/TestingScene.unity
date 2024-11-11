@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18029124, g: 0.22572401, b: 0.3069303, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -554,6 +554,102 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 47609620558979250, guid: 338c283d9bdeeca4e8edab4635c85919, type: 3}
   m_PrefabInstance: {fileID: 5038689857625656174}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &862473374
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.98
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_Name
+      value: Pirate By P. Konstantinov
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 862473376}
+  m_SourcePrefab: {fileID: 100100000, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+--- !u!1 &862473375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+  m_PrefabInstance: {fileID: 862473374}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &862473376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862473375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa62d62a5cd4d03fd8fad2997463e0ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  speed: 5
+  detectionDistance: 10
+  attackDist: 4
+  projectilePrefab: {fileID: 853513176814833288, guid: 71050ebe897872f40a39cd6f3623d19c, type: 3}
+  projectileSpeed: 10
+  reloadTime: 1
 --- !u!1 &882860886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,3 +1499,4 @@ SceneRoots:
   - {fileID: 659439605}
   - {fileID: 497461007}
   - {fileID: 1235346023}
+  - {fileID: 862473374}
