@@ -9,6 +9,6 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public void IncScore(int byVal) {
         score += byVal;
-        // counter.text = "Ice Samples: " + score;
+        counter.text = "Treasures: " + score + "/9";
     }
 }
