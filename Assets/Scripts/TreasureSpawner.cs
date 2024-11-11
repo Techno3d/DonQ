@@ -7,7 +7,7 @@ public class TreasureSpawner : MonoBehaviour
     public GameObject treasurePrefab;
     public List<GameObject> nodes;
     public float radius = 25f;
-    List<GameObject> treasureList;
+    public List<GameObject> treasureList;
     // Start is called before the first frame update
     void Start()
     {
