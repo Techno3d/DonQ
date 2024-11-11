@@ -22,7 +22,7 @@ public class Treasure : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameObject.FindWithTag("GameController").GetComponent<GameManager>().IncScore(1);
-            parent.treasureList.RemoveAt(index);
+            parent.treasureList.Remove(gameObject);
             Destroy(gameObject); 
         }
     }

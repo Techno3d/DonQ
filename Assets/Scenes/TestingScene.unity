@@ -481,6 +481,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &638690647
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.248394
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.759427
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
+      propertyPath: m_Name
+      value: Pirate By P. Konstantinov (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a73da6693c1a4cd8bb675e686146f48, type: 3}
 --- !u!1 &659439602
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,6 +794,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1436243959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1097520878
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ad0c828cb50e843568037de476ac2e65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.685926
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad0c828cb50e843568037de476ac2e65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad0c828cb50e843568037de476ac2e65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.616068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad0c828cb50e843568037de476ac2e65, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad0c828cb50e843568037de476ac2e65, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad0c828cb50e843568037de476ac2e65, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad0c828cb50e843568037de476ac2e65, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad0c828cb50e843568037de476ac2e65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad0c828cb50e843568037de476ac2e65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad0c828cb50e843568037de476ac2e65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ad0c828cb50e843568037de476ac2e65, type: 3}
+      propertyPath: m_Name
+      value: Paladin J Nordstrom
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ad0c828cb50e843568037de476ac2e65, type: 3}
 --- !u!4 &1136612221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8577258863139069131, guid: 001b254466f19fef38345fe4677f7349, type: 3}
@@ -1140,7 +1254,7 @@ Transform:
   m_GameObject: {fileID: 1836066843}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.47, y: 0.75, z: -5.77}
+  m_LocalPosition: {x: -13.47, y: 0.97, z: -5.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1403,3 +1517,5 @@ SceneRoots:
   - {fileID: 659439605}
   - {fileID: 497461007}
   - {fileID: 1235346023}
+  - {fileID: 1097520878}
+  - {fileID: 638690647}
