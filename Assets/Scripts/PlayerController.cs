@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         // Jumping
         if (controller.isGrounded && Input.GetButtonDown("Jump"))
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity) * Mathf.Sqrt(speedmod) * 0.8f;
+            velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity) * Mathf.Sqrt(speedmod) * 0.6f;
         }
         if (Input.GetMouseButtonUp(0))
         {
