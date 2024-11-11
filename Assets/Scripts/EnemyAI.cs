@@ -18,6 +18,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject projectilePrefab;
     [SerializeField]
     public float projectileSpeed = 10f;
+    GameObject treasureSpawner;
     public float reloadTime = 1f;
     int pointIndex = 0;
     Vector3 vel = Vector3.zero;
@@ -28,6 +29,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        treasureSpawner = GameObject.FindGameObjectWithTag("TreasureSpawner");
         player = GameObject.FindGameObjectWithTag("Player");
         WaitTime = reloadTime;
     }
@@ -62,10 +64,26 @@ public class EnemyAI : MonoBehaviour
                 Find();
                 CheckFindState();
                 break;
+            case AIState.Hunt:
+                Chase();
+                CheckHuntState();
+                break;
+        }
+    }
+
+    private void CheckHuntState() {
+        float dist = Vector3.Distance(player.transform.position, transform.position);
+        bool inSight = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out RaycastHit hit, detectionDistance) && hit.collider.CompareTag("Player");
+        if (inSight && dist < attackDist) { // Hunt -> Attack
+            aiState = AIState.Attack;
         }
     }
 
     private void CheckFindState() {
+        if(treasureSpawner.GetComponent<TreasureSpawner>().treasureList.Count <= 0) {
+            aiState = AIState.Hunt;
+            return;
+        }
         // If its been trying for too long, go back to patrol
         if(WaitTime > 2f) {
             aiState = AIState.Patrol;
@@ -88,6 +106,10 @@ public class EnemyAI : MonoBehaviour
     private void CheckAttackState() {
         float dist = Vector3.Distance(player.transform.position, transform.position);
         if(dist > detectionDistance) { // Attack -> Patrol
+            if(treasureSpawner.GetComponent<TreasureSpawner>().treasureList.Count <= 0) {
+                aiState = AIState.Hunt;
+                return;
+            }
             assumedLocation = transform.position + (player.transform.position - transform.position).normalized*2f;
             aiState = AIState.Find;
             return;
@@ -104,9 +126,13 @@ public class EnemyAI : MonoBehaviour
 
     // Similar to CheckAttackState
     private void CheckChaseState() {
+        if(treasureSpawner.GetComponent<TreasureSpawner>().treasureList.Count <= 0) {
+            aiState = AIState.Hunt;
+            return;
+        }
         float dist = Vector3.Distance(player.transform.position, transform.position);
         // Player leaves distance
-        if(dist > detectionDistance) { // Attack -> Patrol
+        if(dist > detectionDistance) { // Chase -> Patrol
             assumedLocation = transform.position + (player.transform.position - transform.position).normalized*2f;
             aiState = AIState.Find;
             return;
@@ -123,6 +149,10 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void CheckPatrolState() {
+        if(treasureSpawner.GetComponent<TreasureSpawner>().treasureList.Count <= 0) {
+            aiState = AIState.Hunt;
+            return;
+        }
         float dist = Vector3.Distance(player.transform.position, transform.position);
         if(dist > detectionDistance) { // Attack -> Patrol
             aiState = AIState.Patrol;
@@ -200,5 +230,5 @@ public class EnemyAI : MonoBehaviour
 }
 
 enum AIState {
-    Patrol, Chase, Attack, Find
+    Patrol, Chase, Attack, Find, Hunt
 }

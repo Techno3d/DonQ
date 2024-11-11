@@ -7,7 +7,7 @@ public class TreasureSpawner : MonoBehaviour
     public GameObject treasurePrefab;
     public List<GameObject> nodes;
     public float radius = 25f;
-    List<GameObject> treasureList;
+    public List<GameObject> treasureList;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +15,13 @@ public class TreasureSpawner : MonoBehaviour
             Vector3 refNode = node.transform.position;
             Vector3 spawn = new Vector3(
                 Random.Range(refNode.x + radius*-5, refNode.x + radius*5),
-                40f,
+                200f,
                 Random.Range(refNode.z + radius*-5, refNode.z + radius*5)
             );
-            treasureList.Add(Instantiate(treasurePrefab, spawn, Quaternion.identity, transform));
+            GameObject tr = Instantiate(treasurePrefab, spawn, Quaternion.identity, transform);
+            treasureList.Add(tr);
+            tr.GetComponent<Treasure>().parent = gameObject.GetComponent<TreasureSpawner>();
+            tr.GetComponent<Treasure>().index = treasureList.Count-1;
         }
     }
 }
