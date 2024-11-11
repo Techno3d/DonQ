@@ -173,7 +173,9 @@ public class EnemyAI : MonoBehaviour
         vel.x = Mathf.MoveTowards(vel.x, dir.x*speed, 20f*Time.deltaTime);
         vel.z = Mathf.MoveTowards(vel.z, dir.z*speed, 20f*Time.deltaTime);
 
-        if((waypoints[pointIndex].transform.position - transform.position).magnitude < 1.0f) {
+        Vector2 wp = new(waypoints[pointIndex].transform.position.x, waypoints[pointIndex].transform.position.z);
+        Vector2 funny = new(transform.position.x, transform.position.z);
+        if((wp - funny).magnitude < 1.0f) {
             pointIndex = (pointIndex+1)%waypoints.Count;
         }
         GetComponent<Rigidbody>().velocity = vel;
