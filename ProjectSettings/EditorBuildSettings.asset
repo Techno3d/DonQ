@@ -12,17 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Island2.unity
     guid: b8e992670681c374e86337131145d16d
   - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Scenes/HowToPlay.unity
-    guid: d1b9c9089ba54fd4f9c7389f0f06568f
-  - enabled: 1
-    path: Assets/Scenes/Volume.unity
-    guid: 3ad7a9ae7f58ce048bddde63f4f04e2b
-=======
     path: Assets/Scenes/Cutscene.unity
     guid: eb6dc8356dad9417192f0e7a59463768
   - enabled: 1
     path: Assets/Scenes/THE Island.unity
     guid: 411180e8d35ab48bf9697b56ca6bf659
->>>>>>> 1eee407bb4eb3de152ec93999fd155e1ad6e603a
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay.unity
+    guid: d1b9c9089ba54fd4f9c7389f0f06568f
+  - enabled: 1
+    path: Assets/Scenes/Volume.unity
+    guid: 3ad7a9ae7f58ce048bddde63f4f04e2b
   m_configObjects: {}
