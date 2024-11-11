@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    private float cooldown = 0.25f;
+    private float lastActionTime = 0f;
     [SerializeField]
     public GameObject projectilePrefab;
     [SerializeField]
@@ -94,7 +95,13 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
-            animator.SetTrigger("Throwing");
+            if (Time.time >= lastActionTime + cooldown)
+            {
+
+                Attack();
+                lastActionTime = Time.time;  // Update last action time
+            }
+
         }
     }
 
@@ -103,7 +110,7 @@ public class PlayerController : MonoBehaviour
     {
         // Instantiate and shoot the projectile
         Vector3 bulletVel = cam.transform.forward * projectileSpeed;
-        GameObject projectile = Instantiate(projectilePrefab, transform.position + Vector3.up * 1.8f + bulletVel * 0.1f, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefab, transform.position + Vector3.up * 1.8f + bulletVel * 0.15f, Quaternion.identity);
         projectile.GetComponent<Projectile>().funnyTag = "Enemy";
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = bulletVel * speedmod;
