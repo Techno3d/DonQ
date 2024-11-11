@@ -28,13 +28,14 @@ public class PlayerController : MonoBehaviour
     public float gravity = 9.81f;
     public float turnSmoothTime = 0.1f;
     private Animator animator;
-
+    private Health health;
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        health = GetComponent<Health>();
     }
 
     // Update is called once per frame
@@ -102,6 +103,10 @@ public class PlayerController : MonoBehaviour
                 lastActionTime = Time.time;  // Update last action time
             }
 
+        }
+        if (health.health <= 0)
+        {
+            ///Death logic for dahik!!!! mwah <3 u my goat dahik ♥
         }
     }
 
