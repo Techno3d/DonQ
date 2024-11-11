@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -406,15 +406,15 @@ MonoBehaviour:
 
 
     10
-    treasures spawn randomly around the map
+    treasures spawn randomly around the island
 
 
-    the 10th treasure can only be collected
-    after the 9 other treasures are collected
+    the treausres are indicated
+    by rising smoke around the map
 
 
-    Head back to the ship safely
-    after all 10 are collected to win!
+    Head back to the ship safely after all 10
+    are collected to win!
 
 
     be careful, these pirates are dangerous...'
