@@ -9,7 +9,8 @@ public class Treasure : MonoBehaviour
     {
         RaycastHit hit;
         if(Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity)) {
-            initialHeight = 0.5f+hit.point.y;
+            Debug.Log("HELPPP");
+            initialHeight = hit.point.y;
         }
         transform.position = new Vector3(transform.position.x, initialHeight, transform.position.z);
     }

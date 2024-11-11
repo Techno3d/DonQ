@@ -15,7 +15,7 @@ public class TreasureSpawner : MonoBehaviour
             Vector3 refNode = node.transform.position;
             Vector3 spawn = new Vector3(
                 Random.Range(refNode.x + radius*-5, refNode.x + radius*5),
-                40f,
+                200f,
                 Random.Range(refNode.z + radius*-5, refNode.z + radius*5)
             );
             treasureList.Add(Instantiate(treasurePrefab, spawn, Quaternion.identity, transform));

@@ -7,8 +7,6 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField]
-    GameObject treasureSpawner;
-    [SerializeField]
     List<Transform> waypoints;
     [SerializeField]
     float speed = 5f;
@@ -20,6 +18,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject projectilePrefab;
     [SerializeField]
     public float projectileSpeed = 10f;
+    GameObject treasureSpawner;
     public float reloadTime = 1f;
     int pointIndex = 0;
     Vector3 vel = Vector3.zero;
@@ -30,6 +29,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        treasureSpawner = GameObject.FindGameObjectWithTag("TreasureSpawner");
         player = GameObject.FindGameObjectWithTag("Player");
         WaitTime = reloadTime;
     }
