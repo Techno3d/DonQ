@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float projectileSpeed = 15f;
     public float reloadTime = 1f;
-
     [SerializeField]
     float rotationSpeed = 360f;
     [SerializeField]
@@ -108,7 +108,10 @@ public class PlayerController : MonoBehaviour
         }
         if (health.health <= 0)
         {
-            GameOverScreen.Setup();
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("UI");
+            //GameOverScreen.Setup();
+
         }
     }
 
