@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public TMP_Text counter;
     public int score = 0;
-    public void IncScore(int byVal) {
+    public void IncScore(int byVal)
+    {
         score += byVal;
-        counter.text = "Treasures: " + score + "/9";
+        counter.text = "Treasures: " + score + "/10";
     }
 }
