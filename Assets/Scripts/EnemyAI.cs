@@ -224,6 +224,7 @@ public class EnemyAI : MonoBehaviour
             GetComponent<Rigidbody>().velocity = -bulletVel/10f;
         } else {
             projectile.transform.parent = transform;
+            projectile.transform.position += Vector3.up;
             projectile.transform.position -= bulletVel*0.1f;
             
         }
