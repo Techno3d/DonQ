@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,8 +30,6 @@ public class PlayerController : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     private Animator animator;
     private Health health;
-
-    public GameOverScreen GameOverScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -108,7 +107,8 @@ public class PlayerController : MonoBehaviour
         }
         if (health.health <= 0)
         {
-            GameOverScreen.Setup();
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Game Over");
         }
     }
 
