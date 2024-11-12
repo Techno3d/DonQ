@@ -29,8 +29,6 @@ public class PlayerController : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     private Animator animator;
     private Health health;
-
-    public GameOverScreen GameOverScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -109,9 +107,13 @@ public class PlayerController : MonoBehaviour
         if (health.health <= 0)
         {
             Cursor.lockState = CursorLockMode.None;
+<<<<<<< HEAD
             SceneManager.LoadScene("UI");
             //GameOverScreen.Setup();
 
+=======
+            SceneManager.LoadScene("Game Over");
+>>>>>>> bbac17f3b82fc3c0b0e058aa377e211ec06c44b4
         }
     }
 
