@@ -11,5 +11,6 @@ public class GameManager : MonoBehaviour
     {
         score += byVal;
         counter.text = "Treasures: " + score + "/10";
+        Settings.score = score;
     }
 }

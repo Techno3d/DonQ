@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class Settings
 {
-    public static float volume;
+    public static int score;
 }

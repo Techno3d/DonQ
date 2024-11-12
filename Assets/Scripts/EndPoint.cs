@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndPoint : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class EndPoint : MonoBehaviour
     void Update() {
         float dist = Vector3.Distance(transform.position, player.position);
         if(dist < 5 && manager.score >= 10) {
-            //Transition to win scene
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Win");
         }
     }
 }
