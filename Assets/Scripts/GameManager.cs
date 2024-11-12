@@ -5,17 +5,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameOverScreen GameOverScreen;
     public TMP_Text counter;
     public int score = 0;
     public void IncScore(int byVal)
     {
         score += byVal;
         counter.text = "Treasures: " + score + "/10";
-    }
-
-    public void GameOver()
-    {
-        GameOverScreen.Setup();
     }
 }

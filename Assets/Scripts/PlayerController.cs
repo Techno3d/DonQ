@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     private Animator animator;
     private Health health;
+
+    public GameOverScreen GameOverScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -106,7 +108,7 @@ public class PlayerController : MonoBehaviour
         }
         if (health.health <= 0)
         {
-            ///Death logic for dahik!!!! mwah <3 u my goat dahik ♥
+            GameOverScreen.Setup();
         }
     }
 
