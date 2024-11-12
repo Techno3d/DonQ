@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-AudioManager audioManager;
+
 public class EndPoint : MonoBehaviour
 {
 
     [SerializeField]
     Transform player;
     GameManager manager;
+    AudioManager audioManager;
 
     private void Awake(){
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();

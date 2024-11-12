@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip lose;
 
 
-    private void PlaySFX(AudiClip clip){
+    public void PlaySFX(AudioClip clip){
         SFX.PlayOneShot(clip);
     }
 
