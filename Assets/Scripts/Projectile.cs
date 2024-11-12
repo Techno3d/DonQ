@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     public bool isAnchored = false;
     float WaitTime = 0f;
     float rotation = 360f;
-
+    AudioManager audioManager;
     void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag(funnyTag))
@@ -17,6 +17,9 @@ public class Projectile : MonoBehaviour
             Health health = collision.collider.GetComponent<Health>();
             if (health != null)
             {
+                if (funnyTag == "Enemy"){
+                    
+                }
                 health.TakeDamage(damage);
             }
         }
