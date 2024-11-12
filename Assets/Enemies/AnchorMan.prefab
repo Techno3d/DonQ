@@ -249,7 +249,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 5
-  detectionDistance: 10
+  detectionDistance: 2
   attackDist: 4
   projectilePrefab: {fileID: 8529130750951273930, guid: b49c56e76bf9071c281fb032bbf54c4e, type: 3}
   projectileSpeed: 10
