@@ -8762,7 +8762,7 @@ GameObject:
   - component: {fileID: 372872131}
   m_Layer: 0
   m_Name: Audio Manager
-  m_TagString: Untagged
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8780,12 +8780,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 1226239673}
-  playerHit: {fileID: 0}
-  enemyHit: {fileID: 0}
-  parrotThrow: {fileID: 0}
+  playerHit: {fileID: 8300000, guid: 2127c825d61d6152fa52febeebb1485d, type: 3}
+  enemyHit: {fileID: 8300000, guid: aee19693a641e4707affcc9aad6a3632, type: 3}
+  parrotThrow: {fileID: 8300000, guid: 275a58c3c24444b54b8ae7242479e4b8, type: 3}
   anchorSwing: {fileID: 0}
   win: {fileID: 0}
   lose: {fileID: 0}
+  treasureObtain: {fileID: 0}
 --- !u!4 &372872132
 Transform:
   m_ObjectHideFlags: 0

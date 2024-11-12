@@ -26,6 +26,11 @@ public class EnemyAI : MonoBehaviour
     float WaitTime = 0;
     GameObject player;
     private AIState aiState = AIState.Patrol;
+
+    AudioManager audioManager;
+    private void Awake(){
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +43,7 @@ public class EnemyAI : MonoBehaviour
     void Update() {
         // Todo - Remove later
         if(GetComponent<Health>().health <= 0) {
+            audioManager.PlaySFX(audioManager.enemyDie);
             Destroy(gameObject);
             return;
         }
@@ -218,11 +224,13 @@ public class EnemyAI : MonoBehaviour
         // Instantiate and shoot the projectile
         GameObject projectile = Instantiate(projectilePrefab, transform.position + bulletVel*0.1f, Quaternion.identity);
         if(!projectile.GetComponent<Projectile>().isAnchored) {
+            audioManager.PlaySFX(audioManager.parrotThrow);
             projectile.transform.position = new Vector3(projectile.transform.position.x, transform.position.y + 2, transform.position.z);
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             rb.velocity = bulletVel;
             GetComponent<Rigidbody>().velocity = -bulletVel/10f;
         } else {
+            audioManager.PlaySFX(audioManager.anchorSwing);
             projectile.transform.parent = transform;
             projectile.transform.position += Vector3.up;
             projectile.transform.position -= bulletVel*0.1f;

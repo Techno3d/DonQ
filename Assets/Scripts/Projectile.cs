@@ -10,6 +10,10 @@ public class Projectile : MonoBehaviour
     float WaitTime = 0f;
     float rotation = 360f;
     AudioManager audioManager;
+    
+     private void Awake(){
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag(funnyTag))
@@ -18,7 +22,10 @@ public class Projectile : MonoBehaviour
             if (health != null)
             {
                 if (funnyTag == "Enemy"){
-                    
+                    audioManager.PlaySFX(audioManager.enemyHit);
+                }
+                if (funnyTag == "Player"){
+                    audioManager.PlaySFX(audioManager.playerHit);
                 }
                 health.TakeDamage(damage);
             }

@@ -8,12 +8,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource SFX;
 
     [Header("---- The Effects ----")]
-    public AudioClip playerHit;
-    public AudioClip enemyHit;
-    public AudioClip parrotThrow;
-    public AudioClip anchorSwing;
-    public AudioClip win;
-    public AudioClip lose;
+    public AudioClip playerHit; //done
+    public AudioClip enemyHit; //done
+    public AudioClip parrotThrow; //done
+    public AudioClip anchorSwing; //done
+    public AudioClip win; //done
+    public AudioClip lose; //done
+
+    public AudioClip treasureObtain; //done
 
 
     public void PlaySFX(AudioClip clip){
