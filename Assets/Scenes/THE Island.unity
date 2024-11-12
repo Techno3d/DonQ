@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0019455205, g: 0.006426431, b: 0.018977972, a: 1}
+  m_IndirectSpecularColor: {r: 0.0019449347, g: 0.0064446493, b: 0.019013382, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8783,10 +8783,11 @@ MonoBehaviour:
   playerHit: {fileID: 8300000, guid: 2127c825d61d6152fa52febeebb1485d, type: 3}
   enemyHit: {fileID: 8300000, guid: aee19693a641e4707affcc9aad6a3632, type: 3}
   parrotThrow: {fileID: 8300000, guid: 275a58c3c24444b54b8ae7242479e4b8, type: 3}
-  anchorSwing: {fileID: 0}
-  win: {fileID: 0}
-  lose: {fileID: 0}
-  treasureObtain: {fileID: 0}
+  anchorSwing: {fileID: 8300000, guid: f11e968f03dedbe93b19a72743cbc9b1, type: 3}
+  win: {fileID: 8300000, guid: 8b6167fcd002e2524aa7020651a25805, type: 3}
+  lose: {fileID: 8300000, guid: 4fcfc4510ffd02bf6a9186b12f58e6b4, type: 3}
+  enemyDie: {fileID: 8300000, guid: dc37a2fe4ed0c759b8a5ece78b7b5085, type: 3}
+  treasureObtain: {fileID: 8300000, guid: 8b6167fcd002e2524aa7020651a25805, type: 3}
 --- !u!4 &372872132
 Transform:
   m_ObjectHideFlags: 0
