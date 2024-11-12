@@ -12,11 +12,10 @@ public class EndPoint : MonoBehaviour
         manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
-    void Update() {
-        float dist = Vector3.Distance(transform.position, player.position);
-        if(dist < 5 && manager.score >= 10) {
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("Win");
+    private void OnCollisionEnter(Collision collision) {
+        if(collision.collider.CompareTag("Player") && manager.score >= 10) {
+           Cursor.lockState = CursorLockMode.None;
+           SceneManager.LoadScene("Win");
         }
     }
 }
