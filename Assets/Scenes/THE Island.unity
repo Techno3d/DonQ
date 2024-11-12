@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0019455208, g: 0.00642644, b: 0.01897798, a: 1}
+  m_IndirectSpecularColor: {r: 0.0019340852, g: 0.0064337305, b: 0.01903382, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6865,66 +6865,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7478096950678454672, guid: 75868bb02f5df55d788eb1e424973087, type: 3}
   m_PrefabInstance: {fileID: 205464806}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &207635138
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 541.71027
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 88.73694
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 658.42
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
-      propertyPath: m_Name
-      value: Hobo Blender (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 464917055}
-  m_SourcePrefab: {fileID: 100100000, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
 --- !u!1 &208772331
 GameObject:
   m_ObjectHideFlags: 0
@@ -9728,33 +9668,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 578358147}
---- !u!1 &464917053 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a0d3682e97cdceb7b9f4aa830346b93, type: 3}
-  m_PrefabInstance: {fileID: 207635138}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &464917055
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464917053}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!4 &469838137 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: bb589d6f2a1db2b41a1601c16ca11d97, type: 3}
@@ -26364,7 +26277,6 @@ SceneRoots:
   - {fileID: 969818948}
   - {fileID: 982808699}
   - {fileID: 700061680}
-  - {fileID: 207635138}
   - {fileID: 1372522400}
   - {fileID: 1649324509}
   - {fileID: 735492170}
