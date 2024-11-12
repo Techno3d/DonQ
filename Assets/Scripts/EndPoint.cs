@@ -17,6 +17,5 @@ public class EndPoint : MonoBehaviour
            Cursor.lockState = CursorLockMode.None;
            SceneManager.LoadScene("Win");
         }
-        Debug.Log(Vector3.Distance(player.transform.position, transform.position) < 30 && manager.score >= 10);
     }
 }
