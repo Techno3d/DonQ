@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float projectileSpeed = 15f;
     public float reloadTime = 1f;
-
     [SerializeField]
     float rotationSpeed = 360f;
     [SerializeField]
