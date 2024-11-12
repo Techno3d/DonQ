@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -41,7 +40,7 @@ public class EnemyAI : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        // Todo - Remove later
+        // Death
         if(GetComponent<Health>().health <= 0) {
             audioManager.PlaySFX(audioManager.enemyDie);
             Destroy(gameObject);
@@ -69,6 +68,8 @@ public class EnemyAI : MonoBehaviour
                 Find();
                 CheckFindState();
                 break;
+            // I am super proud of this, no new logic!!!
+            // Just has to check stuff
             case AIState.Hunt:
                 Chase();
                 CheckHuntState();
@@ -223,6 +224,7 @@ public class EnemyAI : MonoBehaviour
         Vector3 bulletVel = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized * projectileSpeed;
         // Instantiate and shoot the projectile
         GameObject projectile = Instantiate(projectilePrefab, transform.position + bulletVel*0.1f, Quaternion.identity);
+        // if -> Parrot thrower, else -> Anchor Man
         if(!projectile.GetComponent<Projectile>().isAnchored) {
             audioManager.PlaySFX(audioManager.parrotThrow);
             projectile.transform.position = new Vector3(projectile.transform.position.x, transform.position.y + 2, transform.position.z);

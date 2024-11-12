@@ -17,11 +17,5 @@ public class Health : MonoBehaviour
     {
         health -= damage;
         healthBar.value = health;
-
-        if (health <= 0)
-        {
-            // Implement player death logic, like restarting the game or showing a game over screen.
-            // Destroy(gameObject);
-        }
     }
 }

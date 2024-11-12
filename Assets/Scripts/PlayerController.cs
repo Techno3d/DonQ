@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity) * Mathf.Sqrt(speedmod) * 0.6f;
         }
+        // throwing
         if (Input.GetMouseButtonUp(0))
         {
             if (Time.time >= lastActionTime + cooldown)
