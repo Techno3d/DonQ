@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip anchorSwing; //done
     public AudioClip win; //done
     public AudioClip lose; //done
+    public AudioClip enemyDie;
+
 
     public AudioClip treasureObtain; //done
 
