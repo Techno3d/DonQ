@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public TMP_Text counter;
+    public Text counter;
     public int score = 0;
     public void IncScore(int byVal)
     {
