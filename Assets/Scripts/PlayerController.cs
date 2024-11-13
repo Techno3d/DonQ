@@ -48,11 +48,11 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            speedmod = 3f;
+            speedmod = 2f;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speedmod = 1.8f;
+            speedmod = 1.5f;
         }
         // Input
         float xaxis = -Input.GetAxis("Vertical");

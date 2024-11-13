@@ -396,7 +396,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  speed: 5
+  speed: 6
   detectionDistance: 30
   attackDist: 10
   projectilePrefab: {fileID: 7670021540769077496, guid: 52145a96a7cc963729dc3b5a861c0581, type: 3}

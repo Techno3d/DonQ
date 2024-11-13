@@ -185,6 +185,7 @@ public class EnemyAI : MonoBehaviour
         if((wp - funny).magnitude < 1.0f) {
             pointIndex = (pointIndex+1)%waypoints.Count;
         }
+        vel.y = GetComponent<Rigidbody>().velocity.y;
         GetComponent<Rigidbody>().velocity = vel;
     }
     
@@ -196,6 +197,7 @@ public class EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, Mathf.Atan2(dir.x,dir.z), 0f);
         vel.x = Mathf.MoveTowards(vel.x, dir.x*speed, 20f*Time.deltaTime);
         vel.z = Mathf.MoveTowards(vel.z, dir.z*speed, 20f*Time.deltaTime);
+        vel.y = GetComponent<Rigidbody>().velocity.y;
         GetComponent<Rigidbody>().velocity = vel;
     }
 
@@ -217,6 +219,7 @@ public class EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, Mathf.Atan2(dir.x,dir.z), 0f);
         vel.x = Mathf.MoveTowards(vel.x, dir.x*speed, 20f*Time.deltaTime);
         vel.z = Mathf.MoveTowards(vel.z, dir.z*speed, 20f*Time.deltaTime);
+        vel.y = GetComponent<Rigidbody>().velocity.y;
         GetComponent<Rigidbody>().velocity = vel;
     }
 
