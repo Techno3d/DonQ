@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1593339243065996812}
   - component: {fileID: 2278009823415765505}
+  - component: {fileID: 4203660697565325763}
   - component: {fileID: 2057883399661687943}
   m_Layer: 0
   m_Name: Anchor
@@ -55,6 +56,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.3966522, y: 0.30632716, z: 0.73772454}
   m_Center: {x: 0.0055589676, y: 0.04665509, z: 2.2456026}
+--- !u!65 &4203660697565325763
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8529130750951273930}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5947838, y: 0.13642299, z: 1.4252164}
+  m_Center: {x: 0.026189804, y: 0.12278825, z: 1.1113437}
 --- !u!114 &2057883399661687943
 MonoBehaviour:
   m_ObjectHideFlags: 0
