@@ -7,6 +7,8 @@ public class Treasure : MonoBehaviour
     public float initialHeight = 0.5f;
     public TreasureSpawner parent;
     public int index;
+    Transform player;
+    ParticleSystem ps;
 
     AudioManager audioManager;
 
@@ -21,6 +23,8 @@ public class Treasure : MonoBehaviour
             initialHeight = hit.point.y;
         }
         transform.position = new Vector3(transform.position.x, initialHeight, transform.position.z);
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        ps = GetComponent<ParticleSystem>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,6 +35,14 @@ public class Treasure : MonoBehaviour
             audioManager.PlaySFX(audioManager.treasureObtain);
             parent.treasureList.Remove(gameObject);
             Destroy(gameObject); 
+        }
+    }
+    
+    void Update() {
+        if(Vector3.Distance(transform.position, player.position) < 40 && !ps.isPlaying) {
+            ps.Play();
+        } else if(Vector3.Distance(transform.position, player.position) >= 50) {
+            ps.Stop();
         }
     }
 }

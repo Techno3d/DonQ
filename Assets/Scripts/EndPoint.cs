@@ -25,6 +25,5 @@ public class EndPoint : MonoBehaviour
            audioManager.PlaySFX(audioManager.win);
            SceneManager.LoadScene("Win");
         }
-        Debug.Log(Vector3.Distance(player.transform.position, transform.position) < 30 && manager.score >= 10);
     }
 }
